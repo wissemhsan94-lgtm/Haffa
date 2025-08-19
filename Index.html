@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حقيقة أم خيال | Fact or Fiction</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+    
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Cairo', sans-serif;}
+    body {
+      background:#0b1a36;
+      color:#fff;
+      line-height:1.6;
+    }
+    header {
+      text-align:center;
+      padding:60px 20px;
+      background:linear-gradient(135deg,#0b1a36,#112d5c);
+      position:relative;
+      overflow:hidden;
+    }
+    header::before {
+      content:"";
+      position:absolute;
+      width:200%;
+      height:200%;
+      background:radial-gradient(circle,rgba(255,215,0,0.1),transparent 70%);
+      top:-50%; left:-50%;
+      animation:move 10s linear infinite;
+    }
+    @keyframes move {
+      0% {transform:rotate(0deg);}
+      100% {transform:rotate(360deg);}
+    }
+    header img {
+      width:150px; height:150px;
+      border-radius:50%;
+      border:5px solid gold;
+      object-fit:cover;
+      z-index:1;
+      position:relative;
+    }
+    header h1 {
+      margin-top:20px;
+      font-size:2.5rem;
+      color:gold;
+    }
+    header p {
+      margin:10px 0 20px;
+      font-size:1.2rem;
+    }
+    header a {
+      display:inline-block;
+      background:gold;
+      color:#0b1a36;
+      padding:12px 30px;
+      border-radius:30px;
+      font-weight:bold;
+      text-decoration:none;
+      transition:0.3s;
+    }
+    header a:hover {background:#fff; color:#0b1a36;}
+
+    section {
+      padding:60px 20px;
+      max-width:1200px;
+      margin:auto;
+    }
+    section h2 {
+      text-align:center;
+      font-size:2rem;
+      color:gold;
+      margin-bottom:40px;
+      position:relative;
+    }
+    section h2::after {
+      content:"";
+      width:80px;
+      height:3px;
+      background:gold;
+      display:block;
+      margin:10px auto;
+    }
+
+    .about {text-align:center; font-size:1.1rem;}
+
+    .videos, .shorts {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+      gap:20px;
+    }
+    .video-card {
+      background:#13294b;
+      padding:15px;
+      border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.4);
+      transition:0.3s;
+    }
+    .video-card:hover {transform:translateY(-5px);}
+    .video-card img {width:100%; border-radius:10px;}
+    .video-card h3 {margin:10px 0; font-size:1.1rem;}
+    .video-stats {font-size:0.9rem; color:#ccc;}
+
+    .shorts {overflow-x:auto; display:flex; gap:20px;}
+    .short-card {
+      min-width:200px;
+      background:#13294b;
+      padding:10px;
+      border-radius:12px;
+    }
+    .short-card img {width:100%; border-radius:10px;}
+
+    .stats {
+      display:flex;
+      justify-content:space-around;
+      flex-wrap:wrap;
+      gap:30px;
+    }
+    .stat {
+      text-align:center;
+      font-size:1.5rem;
+      color:gold;
+      flex:1 1 200px;
+      animation:count 2s ease-out forwards;
+    }
+
+    .contact form {
+      display:grid;
+      gap:15px;
+      max-width:600px;
+      margin:auto;
+    }
+    .contact input, .contact textarea {
+      padding:12px;
+      border:none;
+      border-radius:8px;
+      font-size:1rem;
+    }
+    .contact button {
+      background:gold;
+      color:#0b1a36;
+      padding:12px;
+      border:none;
+      border-radius:8px;
+      font-size:1rem;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    .contact button:hover {background:#fff;}
+
+    .social {
+      text-align:center;
+      margin-top:20px;
+    }
+    .social a {
+      display:inline-block;
+      margin:0 10px;
+      color:gold;
+      font-size:1.5rem;
+      text-decoration:none;
+      transition:0.3s;
+    }
+    .social a:hover {color:#fff;}
+
+    footer {
+      text-align:center;
+      padding:20px;
+      background:#09142b;
+      margin-top:40px;
+      color:#aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://ibb.co/TBdncBhv" alt="Abdelhafeez Jhim">
+    <h1>حقيقة أم خيال | Fact or Fiction</h1>
+    <p>مع Abdelhafeez Jhim، نكشف الغامض ونفك رموز الخيال من الحقيقة.</p>
+    <a href="https://youtube.com/@jhim259?si=I25BHq9LQ6EbJjj9" target="_blank">شاهد القناة على يوتيوب</a>
+  </header>
+
+  <section class="about">
+    <h2>عن القناة</h2>
+    <p>قناة "حقيقة أم خيال" تقدم محتوى ثقافي، ترفيهي، وألغاز مثيرة، حيث نمزج بين الغموض والمعرفة ونكشف الحقائق وراء كل ما يبدو غريباً.</p>
+  </section>
+
+  <section>
+    <h2>الفيديوهات الأكثر مشاهدة</h2>
+    <div class="videos">
+      <div class="video-card">
+        <img src="https://img.youtube.com/vi/VIDEO_ID1/hqdefault.jpg" alt="Video">
+        <h3>عنوان الفيديو 1</h3>
+        <div class="video-stats">100k مشاهدة | 5k إعجاب</div>
+      </div>
+      <div class="video-card">
+        <img src="https://img.youtube.com/vi/VIDEO_ID2/hqdefault.jpg" alt="Video">
+        <h3>عنوان الفيديو 2</h3>
+        <div class="video-stats">80k مشاهدة | 4k إعجاب</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Shorts</h2>
+    <div class="shorts">
+      <div class="short-card">
+        <img src="https://img.youtube.com/vi/SHORT_ID1/hqdefault.jpg" alt="Short">
+      </div>
+      <div class="short-card">
+        <img src="https://img.youtube.com/vi/SHORT_ID2/hqdefault.jpg" alt="Short">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>إحصائيات القناة</h2>
+    <div class="stats">
+      <div class="stat">+10k <br> مشترك</div>
+      <div class="stat">+500k <br> مشاهدة</div>
+      <div class="stat">+50k <br> إعجاب</div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>صندوق الاقتراحات والتعليقات</h2>
+    <form>
+      <input type="text" placeholder="الاسم" required>
+      <input type="email" placeholder="البريد الإلكتروني" required>
+      <textarea rows="5" placeholder="اكتب رسالتك..." required></textarea>
+      <button type="submit">إرسال</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>تواصل معنا</h2>
+    <div class="social">
+      <a href="https://youtube.com/@jhim259?si=I25BHq9LQ6EbJjj9" target="_blank">📺</a>
+      <a href="https://www.facebook.com/share/14GyzqgtAAp/" target="_blank">📘</a>
+      <a href="wa.me/21629407656" target="_blank">💬</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Abdelhafeez Jhim – جميع الحقوق محفوظة
+  </footer>
+
+</body>
+</html>
