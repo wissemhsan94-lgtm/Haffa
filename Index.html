@@ -1,250 +1,119 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>حقيقة أم خيال | Fact or Fiction</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
-    
-    * {margin:0; padding:0; box-sizing:border-box; font-family:'Cairo', sans-serif;}
-    body {
-      background:#0b1a36;
-      color:#fff;
-      line-height:1.6;
-    }
-    header {
-      text-align:center;
-      padding:60px 20px;
-      background:linear-gradient(135deg,#0b1a36,#112d5c);
-      position:relative;
-      overflow:hidden;
-    }
-    header::before {
-      content:"";
-      position:absolute;
-      width:200%;
-      height:200%;
-      background:radial-gradient(circle,rgba(255,215,0,0.1),transparent 70%);
-      top:-50%; left:-50%;
-      animation:move 10s linear infinite;
-    }
-    @keyframes move {
-      0% {transform:rotate(0deg);}
-      100% {transform:rotate(360deg);}
-    }
-    header img {
-      width:150px; height:150px;
-      border-radius:50%;
-      border:5px solid gold;
-      object-fit:cover;
-      z-index:1;
-      position:relative;
-    }
-    header h1 {
-      margin-top:20px;
-      font-size:2.5rem;
-      color:gold;
-    }
-    header p {
-      margin:10px 0 20px;
-      font-size:1.2rem;
-    }
-    header a {
-      display:inline-block;
-      background:gold;
-      color:#0b1a36;
-      padding:12px 30px;
-      border-radius:30px;
-      font-weight:bold;
-      text-decoration:none;
-      transition:0.3s;
-    }
-    header a:hover {background:#fff; color:#0b1a36;}
-
-    section {
-      padding:60px 20px;
-      max-width:1200px;
-      margin:auto;
-    }
-    section h2 {
-      text-align:center;
-      font-size:2rem;
-      color:gold;
-      margin-bottom:40px;
-      position:relative;
-    }
-    section h2::after {
-      content:"";
-      width:80px;
-      height:3px;
-      background:gold;
-      display:block;
-      margin:10px auto;
-    }
-
-    .about {text-align:center; font-size:1.1rem;}
-
-    .videos, .shorts {
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-      gap:20px;
-    }
-    .video-card {
-      background:#13294b;
-      padding:15px;
-      border-radius:12px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.4);
-      transition:0.3s;
-    }
-    .video-card:hover {transform:translateY(-5px);}
-    .video-card img {width:100%; border-radius:10px;}
-    .video-card h3 {margin:10px 0; font-size:1.1rem;}
-    .video-stats {font-size:0.9rem; color:#ccc;}
-
-    .shorts {overflow-x:auto; display:flex; gap:20px;}
-    .short-card {
-      min-width:200px;
-      background:#13294b;
-      padding:10px;
-      border-radius:12px;
-    }
-    .short-card img {width:100%; border-radius:10px;}
-
-    .stats {
-      display:flex;
-      justify-content:space-around;
-      flex-wrap:wrap;
-      gap:30px;
-    }
-    .stat {
-      text-align:center;
-      font-size:1.5rem;
-      color:gold;
-      flex:1 1 200px;
-      animation:count 2s ease-out forwards;
-    }
-
-    .contact form {
-      display:grid;
-      gap:15px;
-      max-width:600px;
-      margin:auto;
-    }
-    .contact input, .contact textarea {
-      padding:12px;
-      border:none;
-      border-radius:8px;
-      font-size:1rem;
-    }
-    .contact button {
-      background:gold;
-      color:#0b1a36;
-      padding:12px;
-      border:none;
-      border-radius:8px;
-      font-size:1rem;
-      cursor:pointer;
-      transition:0.3s;
-    }
-    .contact button:hover {background:#fff;}
-
-    .social {
-      text-align:center;
-      margin-top:20px;
-    }
-    .social a {
-      display:inline-block;
-      margin:0 10px;
-      color:gold;
-      font-size:1.5rem;
-      text-decoration:none;
-      transition:0.3s;
-    }
-    .social a:hover {color:#fff;}
-
-    footer {
-      text-align:center;
-      padding:20px;
-      background:#09142b;
-      margin-top:40px;
-      color:#aaa;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jhim-montage-video</title>
+<style>
+body {margin:0;font-family:sans-serif;background:#0e0f14;color:#fff;display:flex;flex-direction:column;height:100vh}
+header {background:#141622;padding:12px;text-align:center;font-weight:bold;font-size:18px}
+.viewer {flex:1;display:flex;align-items:center;justify-content:center;margin:8px;border-radius:12px;background:#10121b;position:relative}
+video, canvas {max-width:100%;max-height:100%;border-radius:12px;background:black}
+.controls {padding:10px;background:#1a1d2b;display:flex;flex-direction:column;gap:8px}
+.toolbar {display:flex;justify-content:space-around}
+button {background:#2a2f44;border:none;color:#fff;padding:10px;border-radius:8px;cursor:pointer;flex:1;margin:0 4px;font-size:14px}
+button:hover {background:#3a3f5c}
+input[type=file], input[type=number], input[type=text]{background:#2a2f44;color:#fff;border:none;padding:6px;border-radius:6px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.hint{color:#9aa0ae;font-size:12px}
+</style>
 </head>
 <body>
+<header>🎬 Jhim-montage-video</header>
 
-  <header>
-    <img src="https://ibb.co/TBdncBhv" alt="Abdelhafeez Jhim">
-    <h1>حقيقة أم خيال | Fact or Fiction</h1>
-    <p>مع Abdelhafeez Jhim، نكشف الغامض ونفك رموز الخيال من الحقيقة.</p>
-    <a href="https://youtube.com/@jhim259?si=I25BHq9LQ6EbJjj9" target="_blank">شاهد القناة على يوتيوب</a>
-  </header>
+<div class="viewer">
+  <video id="video" controls></video>
+  <canvas id="canvas" style="position:absolute;top:0;left:0;"></canvas>
+</div>
 
-  <section class="about">
-    <h2>عن القناة</h2>
-    <p>قناة "حقيقة أم خيال" تقدم محتوى ثقافي، ترفيهي، وألغاز مثيرة، حيث نمزج بين الغموض والمعرفة ونكشف الحقائق وراء كل ما يبدو غريباً.</p>
-  </section>
+<div class="controls">
+  <label>📂 استيراد فيديو:
+    <input type="file" id="fileInput" accept="video/*">
+  </label>
 
-  <section>
-    <h2>الفيديوهات الأكثر مشاهدة</h2>
-    <div class="videos">
-      <div class="video-card">
-        <img src="https://img.youtube.com/vi/VIDEO_ID1/hqdefault.jpg" alt="Video">
-        <h3>عنوان الفيديو 1</h3>
-        <div class="video-stats">100k مشاهدة | 5k إعجاب</div>
-      </div>
-      <div class="video-card">
-        <img src="https://img.youtube.com/vi/VIDEO_ID2/hqdefault.jpg" alt="Video">
-        <h3>عنوان الفيديو 2</h3>
-        <div class="video-stats">80k مشاهدة | 4k إعجاب</div>
-      </div>
-    </div>
-  </section>
+  <div class="row">
+    ⏱️ البداية (ث): <input type="number" id="startTime" value="0" min="0" step="0.1">
+    ⏱️ النهاية (ث): <input type="number" id="endTime" value="5" min="0.1" step="0.1">
+  </div>
 
-  <section>
-    <h2>Shorts</h2>
-    <div class="shorts">
-      <div class="short-card">
-        <img src="https://img.youtube.com/vi/SHORT_ID1/hqdefault.jpg" alt="Short">
-      </div>
-      <div class="short-card">
-        <img src="https://img.youtube.com/vi/SHORT_ID2/hqdefault.jpg" alt="Short">
-      </div>
-    </div>
-  </section>
+  <div class="row">
+    🔤 نص: <input type="text" id="textInput" placeholder="أكتب نص هنا">
+  </div>
 
-  <section>
-    <h2>إحصائيات القناة</h2>
-    <div class="stats">
-      <div class="stat">+10k <br> مشترك</div>
-      <div class="stat">+500k <br> مشاهدة</div>
-      <div class="stat">+50k <br> إعجاب</div>
-    </div>
-  </section>
+  <div class="toolbar">
+    <button id="playBtn">▶️ تشغيل</button>
+    <button id="pauseBtn">⏸️ إيقاف</button>
+    <button id="cutBtn">✂️ قص مع النص</button>
+  </div>
+  <div class="hint">⚠️ النسخة Offline: لا تحتاج إنترنت لتشغيل ffmpeg</div>
+</div>
 
-  <section class="contact">
-    <h2>صندوق الاقتراحات والتعليقات</h2>
-    <form>
-      <input type="text" placeholder="الاسم" required>
-      <input type="email" placeholder="البريد الإلكتروني" required>
-      <textarea rows="5" placeholder="اكتب رسالتك..." required></textarea>
-      <button type="submit">إرسال</button>
-    </form>
-  </section>
+<script src="ffmpeg.min.js"></script>
+<script>
+const { createFFmpeg, fetchFile } = FFmpeg;
+const ffmpeg = createFFmpeg({ log: true });
 
-  <section>
-    <h2>تواصل معنا</h2>
-    <div class="social">
-      <a href="https://youtube.com/@jhim259?si=I25BHq9LQ6EbJjj9" target="_blank">📺</a>
-      <a href="https://www.facebook.com/share/14GyzqgtAAp/" target="_blank">📘</a>
-      <a href="wa.me/21629407656" target="_blank">💬</a>
-    </div>
-  </section>
+const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const fileInput = document.getElementById('fileInput');
+const playBtn = document.getElementById('playBtn');
+const pauseBtn = document.getElementById('pauseBtn');
+const cutBtn = document.getElementById('cutBtn');
+const textInput = document.getElementById('textInput');
 
-  <footer>
-    © 2025 Abdelhafeez Jhim – جميع الحقوق محفوظة
-  </footer>
+let currentFile;
+let animationFrame;
 
+fileInput.addEventListener('change', async () => {
+  currentFile = fileInput.files[0];
+  if (currentFile) {
+    const url = URL.createObjectURL(currentFile);
+    video.src = url;
+    video.play();
+    drawOverlay();
+  }
+});
+
+playBtn.addEventListener('click', ()=> { video.play(); drawOverlay(); });
+pauseBtn.addEventListener('click', ()=> { video.pause(); cancelAnimationFrame(animationFrame); });
+
+function drawOverlay() {
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.drawImage(video,0,0,canvas.width,canvas.height);
+  ctx.font = "30px Arial";
+  ctx.fillStyle = "yellow";
+  ctx.fillText(textInput.value, 20, 50);
+  animationFrame = requestAnimationFrame(drawOverlay);
+}
+
+cutBtn.addEventListener('click', async () => {
+  if (!currentFile) return alert("📂 استورد فيديو أولاً");
+  const start = parseFloat(document.getElementById('startTime').value || "0");
+  const end = parseFloat(document.getElementById('endTime').value || "0");
+  if (isNaN(start) || isNaN(end) || end <= start) return alert("⚠️ أوقات غير صالحة");
+
+  if (!ffmpeg.isLoaded()) await ffmpeg.load();
+
+  ffmpeg.FS('writeFile', 'input.mp4', await fetchFile(currentFile));
+
+  const text = textInput.value.replace(/:/g,'\\:');
+  await ffmpeg.run(
+    '-i','input.mp4',
+    '-vf', `drawtext=text='${text}':fontcolor=yellow:fontsize=30:x=20:y=50`,
+    '-ss', String(start),
+    '-to', String(end),
+    '-c:a','copy',
+    'output.mp4'
+  );
+
+  const data = ffmpeg.FS('readFile','output.mp4');
+  const url = URL.createObjectURL(new Blob([data.buffer], {type:'video/mp4'}));
+  const a = document.createElement('a'); a.href = url; a.download='video-text.mp4'; a.click();
+  alert('✅ تم قص الفيديو وإضافة النص وتنزيله');
+});
+</script>
 </body>
 </html>
